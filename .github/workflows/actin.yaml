@@ -16,6 +16,7 @@ jobs:
          dotnet-version: '6.0.x'
          include-prerelease: true
      - name: Build with dotnet
+       shell: powershell
        run: dotnet build **/*.csproj --configuration Release
  
      - name: dotnet publish
