@@ -1,9 +1,10 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - dotnet-github-actions
 on:
   push:
     branches:
       - main
   workflow_dispatch:
- jobs:  
+jobs:  
   build:  
     runs-on: ubuntu-latest
     steps:
@@ -14,12 +15,12 @@ on:
        with:
          dotnet-version: '6.0.x'
          include-prerelease: true
-	 - name: Build with dotnet
+     - name: Build with dotnet
        run: dotnet build --configuration Release
  
      - name: dotnet publish
        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-	 - name: Upload artifact for deployment job
+     - name: Upload artifact for deployment job
        uses: actions/upload-artifact@v2
        with:
          name: .net-app
