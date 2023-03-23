@@ -4,10 +4,6 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        Configuration: [Release]
-        Platform: [Any CPU]
     runs-on: windows-latest
     env:
       Solution_Name: Npa.Accounting.sln                        
@@ -25,9 +21,9 @@ jobs:
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@v1.0.2
       - name: restore
-        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform="Any CPU"
+        run: msbuild Npa.Accounting.sln  /t:Restore /p:Configuration=Release /p:Platform="Any CPU"
       - name: Build
-        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform="Any CPU"
+        run: msbuild Npa.Accounting.sln /t:build /p:Configuration=Release /p:Platform="Any CPU"
       #- name: Test
        # run: dotnet test
       - name: Publish
