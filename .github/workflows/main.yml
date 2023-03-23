@@ -17,8 +17,8 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore Npa.Accounting.sln
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build Npa.Accounting.sln --configuration Release --no-restore
 
       
