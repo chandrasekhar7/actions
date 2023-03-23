@@ -18,6 +18,7 @@ jobs:
         uses: NuGet/setup-nuget@v1.0.6
         with:
                 # NuGet version to install. Can be `latest`, `preview`, a concrete version like `5.3.1`, or a semver range specifier like `5.x`.
-          nuget-version: 6.0
+          nuget-version: '6.0'
+          run: dotnet restore Npa.Accounting.sln
 
       
