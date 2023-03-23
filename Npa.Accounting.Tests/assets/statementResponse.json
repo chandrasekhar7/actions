@@ -1,0 +1,26 @@
+{
+  "statementId": "1500000-20220426",
+  "extension": 0,
+  "balance": {
+    "total": 200,
+    "principal": 0,
+    "interest": 0,
+    "cabFees": 0,
+    "nsf": 0,
+    "lateFees": 0
+  },
+  "amount": {
+    "total": 400,
+    "principal": 0,
+    "interest": 0,
+    "cabFees": 0,
+    "nsf": 0,
+    "lateFees": 0
+  },
+  "period": {
+    "startDate": "2022-04-26",
+    "endDate": "2022-04-26"
+  },
+  "origDueDate": "2022-04-26",
+  "dueDate": "2022-04-26"
+}
