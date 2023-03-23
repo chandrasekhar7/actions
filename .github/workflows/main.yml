@@ -10,19 +10,14 @@ jobs:
     name: Build
     runs-on: windows-latest
     steps:
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.11
+      - name: checkout
       - uses: actions/checkout@v2
+      - name: Setup NuGet.exe for use with actions
+  # You may pin to the exact commit or the version.
+  # uses: NuGet/setup-nuget@b2bc17b761a1d88cab755a776c7922eb26eefbfa
+        uses: NuGet/setup-nuget@v1.0.6
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Installing dotnet-coverage
-        shell: powershell
-        run: dotnet tool install --global dotnet-coverage   
-      - name: Add local nuget repo
-        run: dotnet nuget add source https://packages.f2crew.com/nuget --name NetPayAdvance.Common 
-      - name: Add local nuget repo
-        run: dotnet build Npa.Accounting.sln --configuration Release 
+                # NuGet version to install. Can be `latest`, `preview`, a concrete version like `5.3.1`, or a semver range specifier like `5.x`.
+          nuget-version: 6.0
 
       
