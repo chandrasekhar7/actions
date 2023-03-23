@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>Npa.Accounting.Presentation</RootNamespace>
+        <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <NoWarn>1701;1702;1591;CS8602</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <_WebToolingArtifacts Remove="Properties\PublishProfiles\Production.pubxml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.1" />
+        <PackageReference Include="MediatR" Version="10.0.1" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+        <PackageReference Include="MicroElements.Swashbuckle.FluentValidation" Version="5.7.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
+        <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="5.7.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Npa.Accounting.Application\Npa.Accounting.Application.csproj" />
+      <ProjectReference Include="..\Npa.Accounting.Infrastructure\Npa.Accounting.Infrastructure.csproj" />
+      <ProjectReference Include="..\Npa.Accounting.Persistence.DEPRECATED\Npa.Accounting.Persistence.DEPRECATED.csproj" />
+    </ItemGroup>
+
+</Project>
