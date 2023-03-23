@@ -22,5 +22,7 @@ jobs:
         run: dotnet tool install --global dotnet-coverage   
       - name: Add local nuget repo
         run: dotnet nuget add source https://packages.f2crew.com/nuget --name NetPayAdvance.Common 
+      - name: Add local nuget repo
+        run: dotnet build Npa.Accounting.sln --configuration Release 
 
       
