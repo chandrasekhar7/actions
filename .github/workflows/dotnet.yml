@@ -30,7 +30,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.6
     
     - name: Restore NuGet packages
-      run: nuget restore Npa.Accounting.sln
+      run: nuget restore Npa.Accounting.Application/Npa.Accounting.Application.csproj
     
     - name: Build the Solution
-      run: msbuild Npa.Accounting.sln /p:Configuration=Release
+      run: msbuild Npa.Accounting.Application/Npa.Accounting.Application.csproj /p:Configuration=Release
