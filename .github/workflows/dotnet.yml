@@ -24,7 +24,7 @@ jobs:
       shell: powershell
       run: |
         dotnet nuget add source https://packages.f2crew.com/nuget --name NetPayAdvance.Common
-        run: dotnet build Npa.Accounting.sln /p:Configuration=Release
+        dotnet build Npa.Accounting.sln /p:Configuration=Release
       
    # - name: Setup MSBuild
     #  uses: microsoft/setup-msbuild@v1
