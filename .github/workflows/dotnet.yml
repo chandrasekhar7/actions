@@ -21,6 +21,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     - name: Add local nuget repo
+      shell: powershell
       run: |
         dotnet nuget add source https://packages.f2crew.com/nuget --name NetPayAdvance.Common
         run: dotnet build Npa.Accounting.sln /p:Configuration=Release
