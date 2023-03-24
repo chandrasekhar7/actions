@@ -20,6 +20,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    - name: Add local nuget repo
+      run: dotnet nuget add source https://packages.f2crew.com/nuget --name NetPayAdvance.Common 
       
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
