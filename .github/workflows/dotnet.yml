@@ -31,4 +31,4 @@ jobs:
       run: nuget restore Npa.Accounting.sln
     
     - name: Build the Solution
-      run: dotnet build Npa.Accounting.sln /p:Configuration=Release
+      run: msbuild Npa.Accounting.sln /p:Configuration=Release
