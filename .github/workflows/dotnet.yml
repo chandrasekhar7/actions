@@ -23,8 +23,8 @@ jobs:
     - name: Add local nuget repo
       run: dotnet nuget add source https://packages.f2crew.com/nuget --name NetPayAdvance.Common 
       
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1
+   # - name: Setup MSBuild
+    #  uses: microsoft/setup-msbuild@v1
     
     #- name: Setup NuGet
      # uses: NuGet/setup-nuget@v1.0.6
@@ -33,4 +33,4 @@ jobs:
       run: nuget restore Npa.Accounting.sln
     
     - name: Build the Solution
-      run: msbuild Npa.Accounting.sln /p:Configuration=Release
+      run: dotnet build Npa.Accounting.sln /p:Configuration=Release
