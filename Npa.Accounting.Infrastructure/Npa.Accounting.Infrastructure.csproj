@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>Npa.Accounting.Infrastructure</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.0.123" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.3" />
+      <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+      <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+      <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.4" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="6.0.4" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+      <PackageReference Include="Polly" Version="7.2.3" />
+      <PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Npa.Accounting.Application\Npa.Accounting.Application.csproj" />
+      <ProjectReference Include="..\Npa.Accounting.Domain.DEPRECATED\Npa.Accounting.Domain.DEPRECATED.csproj" />
+      <ProjectReference Include="..\Npa.Accounting.Persistence.DEPRECATED\Npa.Accounting.Persistence.DEPRECATED.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Repay\CardStore" />
+    </ItemGroup>
+
+</Project>
