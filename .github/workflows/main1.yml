@@ -47,6 +47,11 @@ jobs:
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
+    - name: Official SonarQube Scan
+      uses: SonarSource/sonarqube-scan-action@v1.2.0
+      with:
+        projectBaseDir: /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+               
 
     # Decode the base 64 encoded pfx and save the Signing_Certificate
     #- name: Decode the pfx
