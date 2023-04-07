@@ -1,41 +1,24 @@
-name: Deploy to Nginx Server
+name: .NET Build and Test
 
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+on: [push, pull_request]
 
 jobs:
-  setup-nginx-server:
-    runs-on: windows-latest
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Download Nginx
-        run: Invoke-WebRequest -Uri "https://nginx.org/download/nginx-1.20.0.zip" -OutFile "$env:USERPROFILE\Downloads\nginx.zip" -UseBasicParsing
+    - uses: actions/checkout@v2
 
-      - name: Extract Nginx
-        run: Expand-Archive "$env:USERPROFILE\Downloads\nginx.zip" -DestinationPath "$env:USERPROFILE\nginx"
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0.x' # Replace with the .NET Core version you are using
 
-      - name: Configure Nginx
-        run: |
-          Remove-Item "$env:USERPROFILE\nginx\conf\nginx.conf"
-          Copy-Item -Path myapp.conf -Destination "$env:USERPROFILE\nginx\conf\nginx.conf"
-          & "$env:USERPROFILE\nginx\nginx.exe" -t
-          & "$env:USERPROFILE\nginx\nginx.exe"
+    - name: Restore dependencies
+      run: dotnet restore
 
-  deploy-dotnet-app:
-    runs-on: windows-latest
-    needs: setup-nginx-server
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - name: Build
+      run: dotnet build --configuration Release
 
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '3.1.x'
-
-      - name: Restore Dependencies
-        run: dotnet restore
-
-      - name: Build and Publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/account-rest-service
+    - name: Test
+      run: dotnet test
