@@ -16,7 +16,7 @@ jobs:
 
       - name: Configure Nginx
         run: |
-          Remove-Item "$env:USERPROFILE\nginx\conf\nginx.conf"
+          #Remove-Item "$env:USERPROFILE\nginx\conf\nginx.conf"
           Copy-Item -Path /path/to/nginx.conf -Destination "$env:USERPROFILE\nginx\conf\nginx.conf"
           & "$env:USERPROFILE\nginx\nginx.exe" -t
           & "$env:USERPROFILE\nginx\nginx.exe"
