@@ -15,12 +15,12 @@ jobs:
       - name: Extract Nginx
         run: Expand-Archive "$env:USERPROFILE\Downloads\nginx.zip" -DestinationPath "$env:USERPROFILE\nginx"
 
-      #- name: Configure Nginx
-        #run: |
-          #Remove-Item "$env:USERPROFILE\nginx\conf\nginx.conf"
-        #  Copy-Item -Path /path/to/nginx.conf -Destination "$env:USERPROFILE\nginx\conf\nginx.conf"
-         # & "$env:USERPROFILE\nginx\nginx.exe" -t
-         # & "$env:USERPROFILE\nginx\nginx.exe"
+      - name: Configure Nginx
+        run: |
+          Remove-Item "$env:USERPROFILE\nginx\conf\nginx.conf"
+          Copy-Item -Path myapp.conf -Destination "$env:USERPROFILE\nginx\conf\nginx.conf"
+          & "$env:USERPROFILE\nginx\nginx.exe" -t
+          & "$env:USERPROFILE\nginx\nginx.exe"
 
   deploy-dotnet-app:
     runs-on: windows-latest
