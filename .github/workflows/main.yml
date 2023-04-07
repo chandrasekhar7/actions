@@ -37,4 +37,4 @@ jobs:
         run: dotnet restore
 
       - name: Build and Publish
-        run: dotnet publish -c Release -o $(Build.ArtifactStagingDirectory)
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/account-rest-service
