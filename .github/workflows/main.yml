@@ -6,21 +6,23 @@ on:
 
 jobs:
   setup-nginx-server:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - name: Install Nginx
-        run: sudo apt-get update && sudo apt-get install -y nginx
+      - name: Download Nginx
+        run: Invoke-WebRequest -Uri "https://nginx.org/download/nginx-1.20.0.zip" -OutFile "$env:USERPROFILE\Downloads\nginx.zip" -UseBasicParsing
+
+      - name: Extract Nginx
+        run: Expand-Archive "$env:USERPROFILE\Downloads\nginx.zip" -DestinationPath "$env:USERPROFILE\nginx"
 
       - name: Configure Nginx
         run: |
-          sudo rm -f /etc/nginx/sites-enabled/default
-          sudo cp /path/to/nginx.conf /etc/nginx/sites-available/myapp.conf
-          sudo ln -s /etc/nginx/sites-available/myapp.conf /etc/nginx/sites-enabled/
-          sudo nginx -t
-          sudo systemctl restart nginx
+          Remove-Item "$env:USERPROFILE\nginx\conf\nginx.conf"
+          Copy-Item -Path /path/to/nginx.conf -Destination "$env:USERPROFILE\nginx\conf\nginx.conf"
+          & "$env:USERPROFILE\nginx\nginx.exe" -t
+          & "$env:USERPROFILE\nginx\nginx.exe"
 
   deploy-dotnet-app:
-    runs-on: self-hosted
+    runs-on: windows-latest
     needs: setup-nginx-server
     steps:
       - name: Checkout Repository
