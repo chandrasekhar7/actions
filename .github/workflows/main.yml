@@ -3,6 +3,7 @@ name: Deploy to Nginx Server
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   setup-nginx-server:
@@ -29,7 +30,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '3.1.x'
 
