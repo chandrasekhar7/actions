@@ -14,10 +14,9 @@ jobs:
        uses: actions/setup-dotnet@v1
        with:
          dotnet-version: '6.0.x'
-         include-prerelease: true
      - name: Build with dotnet
        shell: powershell
-       run: dotnet build **/*.csproj --configuration Release
+       run: dotnet Npa.Accounting.sln --configuration Release
  
      - name: dotnet publish
        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
@@ -26,3 +25,9 @@ jobs:
        with:
          name: .net-app
          path: ${{env.DOTNET_ROOT}}/myapp
+     - name: Download artifact to local system
+       uses: actions/download-artifact@v2
+       with:
+        name: .net-app # name of the artifact uploaded in the previous step
+        path: D:\mywork\test # path where the artifact will be downloaded
+
