@@ -1,1 +1,0 @@
-﻿{"status": "error","errors": [{"location": "body","name": "card_cvc","description": "Invalid CVV Number."},{"location": "body","name": "card_expiration","description": "Expiration must be in the format MMYY"}]}
