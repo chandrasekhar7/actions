@@ -18,6 +18,7 @@ jobs:
         with:
           to: 'chandraarlagadda@nuvative.com'
           subject: 'CodeCoverage and Unit test'
+          type: text/plain
           body: |
             'This is a notification from GitHub actions about Codecoverage and static code analysis from sonarqube for ${GITHUB_REF#refs/heads/} branch. To see the overall report please click on SonarQube_URL: 'https://sast.f2crew.com/dashboard?branch=staging&id=Net-Pay-Advance-Inc_NPACC_AYx87CNo85rvmfbTxLEv':  '
             Job Details:
