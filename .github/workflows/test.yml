@@ -16,14 +16,8 @@ jobs:
         uses: cinotify/github-action@main
         with:
           to: 'chandraarlagadda@nuvative.com'
-          subject: 'CodeCoverage and Unit test'
-          body: |
-            'This is a notification from GitHub actions about Codecoverage and static code analysis from sonarqube for ${GITHUB_REF#refs/heads/} branch. To see the overall report please click on SonarQube_URL '
-            Job Details:
-            Job Name: ${{ github.job }}
-            Workflow: ${{ github.workflow }}
-            Commit: ${{ github.sha }}
-            type: 'text/html'
-            Repository: ${{ github.repository }}
-            SonarQube_URL: "https://sast.f2crew.com/dashboard?branch=staging&id=Net-Pay-Advance-Inc_NPACC_AYx87CNo85rvmfbTxLEv".
+          subject: 'building main'
+          body: '<em>This is a notification from GitHub actions.</em>'
+          type: 'text/html'
+          attachment: 'artifacts.zip'
     
