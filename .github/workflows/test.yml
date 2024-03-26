@@ -19,4 +19,5 @@ jobs:
           subject: 'building main'
           body: '<em>This is a notification from GitHub actions.</em>'
           type: 'text/html'
+          SonarQube_URL: https://sast.f2crew.com/dashboard?branch=staging&id=Net-Pay-Advance-Inc_NPACC_AYx87CNo85rvmfbTxLEv
     
