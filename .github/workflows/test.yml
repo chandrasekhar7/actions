@@ -1,23 +1,15 @@
-name: test
-on:
-  push:
-    branches:
-    - main
-jobs:
-  build:
-    name: chandra
-    runs-on: windows-latest
-    steps:
-      - name: displaying
-        run: |
-          echo "hellow world"
-      - name: sending notification
+- name: Send success notification
         if: always()
         uses: cinotify/github-action@main
         with:
           to: 'chandraarlagadda@nuvative.com'
-          subject: 'building main'
-          body: '<em>This is a notification from GitHub actions.</em>'
-          type: 'text/html'
-          SonarQube_URL: https://sast.f2crew.com/dashboard?branch=staging&id=Net-Pay-Advance-Inc_NPACC_AYx87CNo85rvmfbTxLEv
-    
+          subject: 'CodeCoverage and Unit test'
+          body: |
+            'This is a notification from GitHub actions about Codecoverage and static code analysis from sonarqube for ${GITHUB_REF#refs/heads/} branch. To see the overall report please click on SonarQube_URL '
+            Job Details:
+            type: 'text/html'
+            Job Name: ${{ github.job }}
+            Workflow: ${{ github.workflow }}
+            Commit: ${{ github.sha }}
+            Repository: ${{ github.repository }}
+            SonarQube_URL: https://sast.f2crew.com/dashboard?branch=staging&id=Net-Pay-Advance-Inc_NPACC_AYx87CNo85rvmfbTxLEv
