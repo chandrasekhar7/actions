@@ -14,7 +14,7 @@ jobs:
           echo "hellow world"
       - name: Send success notification
         if: always()
-        uses: cinotify/github-action@v1.5.0
+        uses: cinotify/github-action@main
         with:
           to: 'chandraarlagadda@nuvative.com'
           subject: 'CodeCoverage and Unit test'
@@ -25,6 +25,6 @@ jobs:
             Workflow: ${{ github.workflow }}
             Commit: ${{ github.sha }}
             Repository: ${{ github.repository }}
-            type: 'text/html'
+            type: 'text/plain'
             SonarQube_URL: 'https://sast.f2crew.com/dashboard?branch=staging&id=Net-Pay-Advance-Inc_NPACC_AYx87CNo85rvmfbTxLEv'
     
