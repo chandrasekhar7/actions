@@ -14,7 +14,7 @@ jobs:
           echo "hellow world"
       - name: Send success notification
         if: always()
-        uses: cinotify/github-action@main
+        uses: cinotify/github-action@v1.5.0
         with:
           to: 'chandraarlagadda@nuvative.com'
           subject: 'CodeCoverage and Unit test'
