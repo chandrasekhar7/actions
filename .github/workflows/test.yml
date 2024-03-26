@@ -23,6 +23,7 @@ jobs:
             Job Name: ${{ github.job }}
             Workflow: ${{ github.workflow }}
             Commit: ${{ github.sha }}
+            type: 'text/html'
             Repository: ${{ github.repository }}
             SonarQube_URL: "https://sast.f2crew.com/dashboard?branch=staging&id=Net-Pay-Advance-Inc_NPACC_AYx87CNo85rvmfbTxLEv".
     
