@@ -25,6 +25,5 @@ jobs:
             Workflow: ${{ github.workflow }}
             Commit: ${{ github.sha }}
             Repository: ${{ github.repository }}
-            type: 'text/plain'
             
     
