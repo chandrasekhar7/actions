@@ -19,5 +19,4 @@ jobs:
           subject: 'building main'
           body: '<em>This is a notification from GitHub actions.</em>'
           type: 'text/html'
-          attachment: 'artifacts.zip'
     
