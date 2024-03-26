@@ -1,4 +1,18 @@
-- name: Send success notification
+
+name: test
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build:
+    name: chandra
+    runs-on: windows-latest
+    steps:
+      - name: displaying
+        run: |
+          echo "hellow world"
+      - name: Send success notification
         if: always()
         uses: cinotify/github-action@main
         with:
@@ -7,9 +21,10 @@
           body: |
             'This is a notification from GitHub actions about Codecoverage and static code analysis from sonarqube for ${GITHUB_REF#refs/heads/} branch. To see the overall report please click on SonarQube_URL '
             Job Details:
-            type: 'text/html'
             Job Name: ${{ github.job }}
             Workflow: ${{ github.workflow }}
             Commit: ${{ github.sha }}
             Repository: ${{ github.repository }}
+            type: 'text/html'
             SonarQube_URL: https://sast.f2crew.com/dashboard?branch=staging&id=Net-Pay-Advance-Inc_NPACC_AYx87CNo85rvmfbTxLEv
+    
