@@ -27,4 +27,4 @@ jobs:
         password: Ramanaraju@7
         subject: 'GitHub Actions Workflow Failed'
         body: 'Workflow step failed: ${{ job.status }}'
-        to: azadsekhar7@gmail.com
+        to: hirabye@hotmail.com
