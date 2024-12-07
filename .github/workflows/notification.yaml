@@ -23,8 +23,8 @@ jobs:
       with:
         server_address: smtp.office365.com
         server_port: 587
-        username: hirabye@hotmail.com
-        password: Ramanaraju@7
+        username: ${{ secrets.OUTLOOK_MAIL }}
+        password: ${{ secrets.OUTLOOK_PASS }}
         subject: 'GitHub Actions Workflow Failed'
         body: 'Workflow step failed: ${{ job.status }}'
         to: hirabye@hotmail.com
