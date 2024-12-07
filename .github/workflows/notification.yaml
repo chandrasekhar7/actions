@@ -15,7 +15,7 @@ jobs:
 
     - name: Run Tests
       run: dotnet test
-      continue-on-error: true
+      #continue-on-error: true
 
     - name: Notify via Email on Failure
       if: failure()
