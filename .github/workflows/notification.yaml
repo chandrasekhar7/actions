@@ -1,0 +1,30 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Run Tests
+      run: dotnet test
+      continue-on-error: true
+
+    - name: Notify via Email on Failure
+      if: failure()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.office365.com
+        server_port: 587
+        username: hirabye@hotmail.com
+        password: Ramanaraju@7
+        subject: 'GitHub Actions Workflow Failed'
+        body: 'Workflow step failed: ${{ job.status }}'
+        to: azadsekhar7@gmail.com
